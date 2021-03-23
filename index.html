@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="chart.min.js"></script>
+    <!-- <script src="jquery.min.js"></script>
+    <script src="bootstrap.min.js"></script>
+    <link rel="stylesheet" link="bootstrap.min.css"> -->
+    <title>My Chart JS</title>
+</head>
+<body>
+    <div class="container">
+        <canvas id="myChart"></canvas>
+    </div>
+
+    <script>
+        let myChart = document.getElementById('myChart').getContext('2d');
+
+// Global Options
+Chart.defaults.global.defaultFontFamily = 'Lato';
+Chart.defaults.global.defaultFontSize = 18;
+Chart.defaults.global.defaultFontColor = '#777';
+
+        let exampleChart = new Chart(myChart,{
+            type:'pie', // bar, horizontal, pie, line, doughnut, radar, polarArea
+            data:{
+                labels:['Amadora','Lisboa','Porto','Aveiro','Setúbal'],
+                datasets:[{
+                    label: 'Population',
+                    data: [
+                        175135,
+                        547631,
+                        237559,
+                        67003,
+                        90640
+                    ],
+                    backgroundColor:[
+                        'rgba(255, 0, 102, 1)',
+                        'rgba(217, 128, 255, 1)',
+                        'rgba(145, 255, 0, 1)',
+                        'rgba(255, 238, 0, 1)',
+                        'rgba(0, 234, 255, 1)',
+                    ],
+                    borderWidth: 1,
+                    borderColor:'#777',
+                    hoverBorderWidth: 3,
+                    hoverBorderColor: '#000'
+                }]
+            },
+            options:{
+                title:{
+                    display:true,
+                    text:'Largest Cities in Portugal',
+                    fontSize: 25
+                },
+                legend:{
+                    display: true,
+                    position:'right',
+                    labels:{
+                        fontColor:'#000'
+                    }
+                },
+                layout:{
+                    padding:{
+                        left:50,
+                        right:0,
+                        top:0,
+                        bottom:0
+                    }
+                },
+                tooltips:{
+                    enabled:true
+                }
+            }
+        });
+    </script>
+</body>
+</html>
